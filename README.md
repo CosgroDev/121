@@ -1,6 +1,6 @@
 # 🎯 121 Darts Game
 
-A simple, beautiful web-based darts game for playing 121 - a challenging checkout progression game!
+A sleek, mobile-responsive web-based darts game for playing 121 - a challenging checkout progression game!
 
 ## 🎮 Game Rules
 
@@ -8,170 +8,146 @@ A simple, beautiful web-based darts game for playing 121 - a challenging checkou
 
 ### How to Play
 
-1. **Start at checkout 40** - This is your base checkout
-2. **You have 9 darts** to finish each checkout
-3. **Enter your score** after each dart throw
+1. **Start at checkout 121** - This is your base checkout
+2. **You have 3 turns** (9 darts total) to finish each checkout
+3. **Enter your score for each turn** (3 darts per turn)
 4. **Win conditions**:
    - Finish the checkout exactly (hit the target number)
-   - If finished within **3 darts**: The checkout becomes your new **base checkout** (locked 🔒)
-   - If finished within **9 darts**: Move to the next checkout (+1)
+   - If finished on **Turn 1**: The checkout becomes your new **base checkout** (locked 🔒)
+   - If finished on **Turn 2 or 3**: Move to the next checkout (+1) but base stays the same
 5. **Fail conditions**:
    - Go over the target (bust)
-   - Don't finish within 9 darts
+   - Don't finish within 3 turns (9 darts)
    - If you fail: Return to your **base checkout**
 6. **Victory**: Reach checkout 170!
 
 ### Example Game Flow
 
-- Start: Checkout 40, Base 40
-- Finish 40 in 2 darts → **Locked!** Checkout 41, Base 40 (new)
-- Finish 41 in 5 darts → Checkout 42, Base 41
-- Fail 42 → Return to Checkout 41 (base)
-- Finish 41 in 1 dart → **Locked!** Checkout 42, Base 41 (new)
-- Continue until you reach 170!
+**Example 1: Lock Base**
+- Start: Checkout 121, Base 121
+- Turn 1: Score 121 → **Locked!** Base 121, move to Checkout 122
+
+**Example 2: Progress Without Locking**
+- Checkout 122, Base 121
+- Turn 1: Score 60 → Remaining: 62
+- Turn 2: Score 62 → Checkout complete! Base stays 121, move to Checkout 123
+
+**Example 3: Fail and Return**
+- Checkout 123, Base 121
+- Turn 1: Score 40 → Remaining: 83
+- Turn 2: Score 40 → Remaining: 43
+- Turn 3: Score 40 → Failed! Return to Checkout 121 (base)
 
 ## 🚀 Getting Started
 
-### Local Testing
+### Play Locally
 
-1. **Download the files** or clone this repository
+1. **Download or clone this repository**
 2. **Open `index.html`** in any modern web browser
 3. **Start playing!** No installation or setup needed
 
-### Hosting on GitHub Pages (FREE!)
+### Deploy to GitHub Pages (FREE!)
 
-1. **Create a GitHub account** (if you don't have one): https://github.com/signup
+1. **Push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/YOUR-USERNAME/121-darts-game.git
+   git push -u origin main
+   ```
 
-2. **Create a new repository**:
-   - Click the "+" icon in the top right
-   - Select "New repository"
-   - Name it `121-darts-game`
-   - Make it **Public**
-   - Click "Create repository"
-
-3. **Upload your files**:
-   - Click "uploading an existing file"
-   - Drag and drop all files: `index.html`, `style.css`, `game.js`, `README.md`
-   - Click "Commit changes"
-
-4. **Enable GitHub Pages**:
-   - Go to repository "Settings"
-   - Click "Pages" in the left sidebar
-   - Under "Source", select "main" branch
-   - Click "Save"
+2. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Source: Deploy from branch `main`
+   - Click Save
    - Wait 1-2 minutes
 
-5. **Your game is live!** 🎉
-   - URL: `https://[your-username].github.io/121-darts-game`
-   - Share this link with anyone!
+3. **Your game is live!** 🎉
+   - URL: `https://YOUR-USERNAME.github.io/121-darts-game`
 
-## 📊 Features
+## ✨ Features
 
-- ✅ **Player Management**: Add your name and track stats
-- ✅ **Persistent Stats**: All data saved in browser (localStorage)
-- ✅ **Session History**: See all your attempts in the current session
-- ✅ **Multiple Players**: Switch between different players
-- ✅ **Responsive Design**: Works on desktop, tablet, and mobile
-- ✅ **Beautiful UI**: Clean, modern interface with smooth animations
-- ✅ **No Cost**: Completely free to host and use
-- ✅ **No Backend**: Everything runs in your browser
+- 🎯 **Turn-Based Scoring**: Enter your 3-dart turn scores
+- 👤 **Player Management**: Track multiple players with persistent stats
+- 💾 **Local Storage**: All data saved in your browser (no server needed)
+- 📊 **Session History**: Review all attempts in your current session
+- 🌓 **Dark/Light Theme**: Toggle between themes with one click
+- 📱 **Mobile Responsive**: Perfect for phone, tablet, or desktop
+- 🎨 **Forest Green Theme**: Sleek dark green design that's easy on the eyes
+- ⚡ **Zero Cost**: Completely free to host and use
+- 🔒 **Privacy**: No backend, no tracking - everything runs locally
 
-## 📱 Usage
+## 📱 How to Use
 
 ### Starting a Game
-1. Enter your name
-2. Click "Start Game" (or press Enter)
-3. If you've played before, click your name to continue
+1. Enter your name (or select existing player)
+2. Press Enter or click "Start Game"
 
 ### During the Game
-1. Throw a dart in real life
-2. Enter the score in the input field
-3. Click "Submit Score" (or press Enter)
-4. Continue until checkout is finished or you run out of darts
+1. Throw your turn (3 darts)
+2. Enter the total score for that turn
+3. Press Enter or click "Submit"
+4. View "Remaining" to see what you need
+5. Repeat for up to 3 turns
 
-### Buttons
-- **Submit Score**: Record the dart score
-- **Miss (0)**: Quick button for a miss
-- **Reset Attempt**: Give up on current checkout and return to base
-- **End Game**: Save stats and return to player selection
+### Controls
+- **Submit**: Record your turn score (Enter key works!)
+- **Miss (0)**: Quick button for a zero score
+- **Theme Toggle** (🌙/☀️): Switch between dark/light mode
 - **Change Player**: Switch to a different player
+- **Reset Attempt**: Give up and return to base checkout
+- **End Game**: Save stats and exit to player selection
 
 ## 💾 Data Storage
 
 All data is stored locally in your browser using localStorage:
-- Player names
-- Games played
-- Best checkouts achieved
-- Total wins (reached 170)
-- Game history
+- Player names and statistics
+- Games played and best checkouts
+- Total wins (players who reached 170)
+- Session history
 
-**Note**: Data is specific to each browser/device. If you clear browser data, stats will be lost.
-
-## 🛠️ Customization
-
-Want to modify the game? Here's what each file does:
-
-- **`index.html`**: Game structure and layout
-- **`style.css`**: All styling, colors, and design
-- **`game.js`**: Game logic, rules, and data management
-
-### Easy Modifications
-
-Change starting checkout (line 3-4 in `game.js`):
-```javascript
-currentCheckout: 40,  // Change this number
-baseCheckout: 40,     // And this number
-```
-
-Change dart limit (line 294 in `game.js`):
-```javascript
-else if (gameState.dartsUsed >= 9) {  // Change 9 to another number
-```
-
-Change winning target (lines 310-315 in `game.js`):
-```javascript
-if (gameState.currentCheckout > 170) {  // Change 170 to another number
-```
+**Note**: Data is specific to each browser/device. Clearing browser data will erase stats.
 
 ## 🎨 Browser Support
 
-Works in all modern browsers:
+Works perfectly in all modern browsers:
 - ✅ Chrome/Edge (recommended)
 - ✅ Firefox
 - ✅ Safari
-- ✅ Mobile browsers
+- ✅ Mobile browsers (iOS Safari, Chrome Mobile, etc.)
+
+## 🛠️ Project Structure
+
+- **`index.html`**: Game structure and layout
+- **`style.css`**: Theming, responsive design, and animations
+- **`game.js`**: Game logic, turn tracking, and local storage
+- **`README.md`**: This file
+
+## 🎯 Tips for Playing
+
+- **Locking Base**: Only Turn 1 completions lock your base - make them count!
+- **Strategic Play**: Sometimes it's better to play safe and build your base slowly
+- **Track Progress**: Watch your "Remaining" score to plan your next turn
+- **Practice**: Start with consistent scoring to build a solid base
+- **Challenge Friends**: Share your GitHub Pages link and compare stats!
 
 ## 🐛 Troubleshooting
 
 **Stats not saving?**
-- Make sure you're using the same browser/device
-- Check that cookies/localStorage is enabled
-- Try a different browser
+- Ensure localStorage is enabled in your browser
+- Use the same browser/device for consistent data
 
 **Page not loading?**
-- Clear browser cache
-- Try opening in incognito/private mode
-- Check browser console for errors (F12)
+- Clear browser cache and try again
+- Open in incognito mode to test
 
 **GitHub Pages not working?**
 - Wait 2-5 minutes after enabling Pages
-- Make sure repository is Public
-- Check that files are in the main branch root
-
-## 📝 License
-
-This project is free to use, modify, and distribute. Have fun!
-
-## 🎯 Tips for Playing
-
-- Practice consistency with easier checkouts before attempting higher ones
-- Remember: Finishing in 3 darts locks your progress
-- Use the "Miss (0)" button for quick entries
-- Track your best checkout and try to beat it
-- Challenge friends and compare stats!
+- Ensure repository is Public
+- Check that `index.html` is in the root directory
 
 ---
 
-**Created for dart enthusiasts who love a challenge!** 🎯
+**Created by Dale Cosgrove** 🎯
 
 Good luck and may your arrows fly true!
