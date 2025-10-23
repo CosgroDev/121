@@ -35,16 +35,32 @@ function setupEventListeners() {
     document.getElementById('end-game-btn').addEventListener('click', endGame);
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-    // Enter key to submit score
-    document.getElementById('score').addEventListener('keypress', (e) => {
+    // Enter key to submit score (works on mobile keyboards)
+    const scoreInput = document.getElementById('score');
+    scoreInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
+            e.preventDefault();
+            submitScore();
+        }
+    });
+    scoreInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
             submitScore();
         }
     });
 
     // Enter key to start game
-    document.getElementById('player-name').addEventListener('keypress', (e) => {
+    const nameInput = document.getElementById('player-name');
+    nameInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
+            e.preventDefault();
+            startNewGame();
+        }
+    });
+    nameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
             startNewGame();
         }
     });
