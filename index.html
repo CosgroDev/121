@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>121 Darts Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎯 121 Darts Game</h1>
+            <p class="subtitle">Finish checkouts within 9 darts to level up!</p>
+        </header>
+
+        <!-- Player Setup -->
+        <div id="player-setup" class="card">
+            <h2>Welcome!</h2>
+            <div class="form-group">
+                <label for="player-name">Enter Your Name:</label>
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="30">
+            </div>
+            <button id="start-game-btn" class="btn btn-primary">Start Game</button>
+
+            <div class="existing-players" id="existing-players-section" style="display: none;">
+                <h3>Or Continue As:</h3>
+                <div id="existing-players-list"></div>
+            </div>
+        </div>
+
+        <!-- Game Interface -->
+        <div id="game-interface" style="display: none;">
+            <!-- Player Info -->
+            <div class="card player-info">
+                <div class="player-header">
+                    <h2 id="current-player-name">Player Name</h2>
+                    <div class="header-buttons">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                            <span class="theme-icon">☀️</span>
+                        </button>
+                        <button id="change-player-btn" class="btn btn-small">Change Player</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Games Played</span>
+                        <span class="stat-value" id="games-played">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best Checkout</span>
+                        <span class="stat-value" id="best-checkout">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Wins</span>
+                        <span class="stat-value" id="total-wins">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combined Score & Checkout Box -->
+            <div class="card main-game-card">
+                <div class="checkout-section">
+                    <div class="checkout-item">
+                        <span class="checkout-label">Current Checkout</span>
+                        <span class="checkout-number current" id="current-checkout">121</span>
+                    </div>
+                    <div class="checkout-divider"></div>
+                    <div class="checkout-item">
+                        <span class="checkout-label">Base Checkout</span>
+                        <span class="checkout-number base" id="base-checkout">121</span>
+                    </div>
+                </div>
+
+                <div class="remaining-section">
+                    <span class="remaining-label">Remaining</span>
+                    <span class="remaining-value" id="remaining-value">121</span>
+                </div>
+
+                <div class="score-input-section">
+                    <div class="score-controls">
+                        <input type="number" id="score" min="0" max="180" placeholder="Enter score" inputmode="numeric">
+                        <button id="submit-score-btn" class="btn btn-primary">Submit</button>
+                    </div>
+                    <button id="miss-btn" class="btn btn-miss">Miss (0)</button>
+                </div>
+
+                <div class="darts-section">
+                    <span class="darts-label">Turns Remaining (3 darts each)</span>
+                    <div class="darts-display" id="darts-display">
+                        <span class="dart">🎯</span>
+                        <span class="dart">🎯</span>
+                        <span class="dart">🎯</span>
+                    </div>
+                </div>
+
+                <button id="reset-attempt-btn" class="btn btn-danger">Reset Attempt</button>
+            </div>
+
+            <!-- Game History -->
+            <div class="card game-history">
+                <h3>Session History</h3>
+                <div id="history-list" class="history-list">
+                    <p class="empty-state">No attempts yet - good luck!</p>
+                </div>
+                <button id="end-game-btn" class="btn btn-secondary">End Game</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Created by Dale Cosgrove</p>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
